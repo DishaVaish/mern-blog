@@ -6,10 +6,11 @@ import About from './pages/About';
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
-
+import Header from './components/Header';
 export default function App() {
   return (
     <Router>
+      <Header />
        <Routes>
          <Route path="/" element={<Home />} />
          <Route path="/about" element={<About />} />

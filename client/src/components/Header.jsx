@@ -1,9 +1,10 @@
 // import React from 'react';
-import { Button, Navbar, TextInput } from 'flowbite-react';
-import { Link } from 'react-router-dom';
+import { Button,Navbar, NavbarToggle, TextInput } from 'flowbite-react';
+import { Link ,useLocation } from 'react-router-dom';
 import {AiOutlineSearch } from 'react-icons/ai';
 import {FaMoon} from 'react-icons/fa';
 export default function Header() {
+  const path= useLocation().pathname;
   return (
     <Navbar className='border-b-2'>
         <Link to="/" className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white  mr-4'>
@@ -11,43 +12,40 @@ export default function Header() {
             MNNIT</span>
         Blog
         </Link>
-        <form className="mr-4">
+         <form mr-40>
              <TextInput
                 type='text'
                 placeholder='Search...'
-                rightIcon={AiOutlineSearch } 
-                className='hidden lg:inline pl=10'
+                rightIcon={AiOutlineSearch}
+                className='hiddenlg:inline pl-10 mr-10'
+        
            />     
         </form>
         <Button className='w-12 h-10 lg:hidden' color='gray' pill>
           <AiOutlineSearch />
         </Button>
-        <div className="flex gap-2 md:order-2">
-            <Button className='w-12 h-10 hidden sm:inline' color='gray' pill >
+     
+          
+        <div className="flex gap-2  md:order-2">
+            <Button className='w-12 h-10 hidden sm:inline ml-20 mt-5' color='gray' pill >
                  <FaMoon />
             </Button>
             <Link to='/sign-in'>
-            {/* <Button gradientDuoTone='purpleToBlue' outline>
+               <Button className="bg-black pt-2 pb-2 pr-2 pl-2 mt-5" >
                  Sign In
-            </Button> */}
-            <Button pill>Default</Button>
-            </Link>
+                </Button>
+             </Link>
+            <Navbar.Toggle />
         </div>
-            <Navbar.Collapse>
-                 <Navbar.Link>
-                     <Link to='/'>
-                      Home
-                     </Link>
+            <Navbar.Collapse className='mt-5'>
+                 <Navbar.Link className='mr-10' active={path=="/home"} as={'div'}>
+                     <Link to='/'>Home </Link>
                  </Navbar.Link>
-                 <Navbar.Link>
-                     <Link to='/about'>
-                      About
-                     </Link>
+                 <Navbar.Link className='mr-10' active={path=="/about"} as={'div'}>
+                     <Link to='/about'> About</Link>
                  </Navbar.Link>
-                 <Navbar.Link>
-                     <Link to='/projects'>
-                       Projects
-                     </Link>
+                 <Navbar.Link className='mr-20' active={path=="/projects"} as={'div'}>
+                     <Link to='/projects'>Projects</Link>
                  </Navbar.Link>
                  
             </Navbar.Collapse>
@@ -55,3 +53,4 @@ export default function Header() {
     </Navbar>
   );
 }
+

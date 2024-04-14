@@ -10,6 +10,7 @@
 // });
 import express from 'express';
 import mongoose from 'mongoose';
+import postRoutes from './routes/post.route.js';
 
 mongoose.connect('mongodb://localhost:27017/Login-signup',{
     useNewUrlParser: true,
@@ -26,7 +27,10 @@ const app = express();
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
+
 });
+
+app.use('/api/post',postRoutes);
 
 app.get('/test', (req, res) => {
     res.json({message: 'API is working!'})

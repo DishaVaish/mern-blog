@@ -1,5 +1,6 @@
 //review
-import User from '../models/user.model.js'
+import User from '../models/user.model.js';
+import bcryptjs from 'bcryptjs';
 import { errorHandler } from '../utils/error.js';
 
 export const signup = async (req, res, next)=>{
@@ -10,17 +11,20 @@ export const signup = async (req, res, next)=>{
     next(errorHandler( 400, 'All fields are required'));
   }
 
+  //We need to hash the password for security :
+  const hashedPassword = bcryptjs.hashSync(password, 10);
+
   const newUser = new User({
     username,
     email,
-    password,
+    password: hashedPassword,
   });
 
   try{
 
     await newUser.save();
     res.json('Signup Successful');
-} catch(error){
+}   catch(error){
     // res.status(500).json({message: "error while gaining the details of the user"});
     // res.status(500).json({message: error.message});
     next(error);
@@ -28,4 +32,4 @@ export const signup = async (req, res, next)=>{
 
 };
 
-//missing one step of 1:39:35(skipped) for2-3 mins - npm i bcryptjs
+

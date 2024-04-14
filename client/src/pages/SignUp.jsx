@@ -35,7 +35,7 @@ export default function SignUp() {
                  <Label value='Your password' />
                  <TextInput type='text' placeholder='Password' id='password' />
              </div>
-             <Button className='btn flex items-center justify-center py-1.25  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white  mt-4 ' >
+             <Button className='btn flex items-center justify-center py-1.25  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white mt-4 pt-2 pb-2' >
               Sign Up
              </Button>
           </form>

@@ -6,6 +6,8 @@ import authRoutes from './routes/auth.routes.js';
 // mongoose.connect('mongodb://localhost:27017/Login-signup',{
   // mongoose.connect('mongodb://127.0.0.1:27017/Login-signup', {
   mongoose.connect('mongodb+srv://vedangmehta07:6S6sRQubtBGL293k@mern-blog.nfbdcuk.mongodb.net/mern-blog?retryWrites=true&w=majority', {
+    //Warning: useNewUrlParser is a deprecated option: useNewUrlParser has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+  //(Use `node --trace-warnings ...` to show where the warning was created)
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -40,6 +42,3 @@ app.use((err,req,res, next) =>{
 
   });
 } );
-
-
-    

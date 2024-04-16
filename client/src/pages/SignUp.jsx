@@ -13,28 +13,27 @@ export default function SignUp() {
     };
     const handleSubmit = async (e) => {
       e.preventDefault();
-      if (!formData.email || !formData.password) {
+      if (!formData.username || !formData.email || !formData.password) {
          return setErrorMessage('Please fill ou all fields.');
       }
-      //   return dispatch(signInFailure('Please fill all the fields'));
-      // }
+     
       try {
         setLoading(true);
         setErrorMessage(null);
-        // dispatch(signInStart());
-        const res = await fetch('/api/auth/signin', {
+        
+        const res = await fetch('/api/auth/signup', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(formData),
         });
         const data = await res.json();
         if (data.success === false) {
-          // dispatch(signInFailure(data.message));
+       
           return setErrorMessage(data.message);
         }
         setLoading(false);
         if (res.ok) {
-        //   dispatch(signInSuccess(data));
+       
           navigate('/sign-in');
         // }
       }

@@ -1,1 +1,2 @@
-mern website
+CareerVista Blog Application
+

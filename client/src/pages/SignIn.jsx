@@ -4,6 +4,7 @@ import{Alert,Spinner, Label,TextInput,Button} from 'flowbite-react'
 import{ useState } from 'react';
 import { useDispatch , useSelector} from 'react-redux';
 import {signInStart ,signInSuccess, signInFailure} from '../redux/user/userSlice'
+import OAuth from '../components/OAuth';
 
 export default function SignIn() {
   const [formData, setFormData ] = useState({}) ;
@@ -77,7 +78,7 @@ export default function SignIn() {
                  <Label value='Your password' />
                  <TextInput type='password' placeholder='**********' id='password'  onChange={handleChange} />
              </div>
-             <Button className='btn flex items-center justify-center py-1.25  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white mt-4 pt-2 pb-2' type='submit' disabled={loading} >
+             <Button className='btn flex items-center justify-center py-1.25  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-indigo-600 hover:to-pink-600 rounded-lg text-white mt-4 pt-2 pb-2' type='submit' disabled={loading} >
               {
                  loading ? (
                   <>
@@ -88,6 +89,7 @@ export default function SignIn() {
                
            )}
              </Button>
+             <OAuth />
           </form>
           <div className='flex gap-2 text-sm mt-4'> 
             <span>Don't Have an account?</span>

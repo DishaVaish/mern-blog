@@ -1,4 +1,3 @@
-//review
 import User from '../models/user.model.js';
 import bcryptjs from 'bcryptjs';
 import { errorHandler } from '../utils/error.js';
@@ -50,19 +49,17 @@ try{
     return next(errorHandler(400, 'Invalid Password'));  
 }
 
-  //For creating a unique token of signin: 
+  //Creating a unique token of signin: 
   //It is going to be encrypted just like hashed password 
   //_id is the unique id stored for each user in MongoDB
-  const token = jwt.sign({id: validUser._id}, process.env.JWT_SECRET);
+  const token = jwt.sign({id: validUser._id}, process.env.JWT_SECRET);//.env file should be in directory
   // const token = jwt.sign({id: validUser._id}, 'vsmehta');
   // we can add expiresIn : 'Id' here so after how much time the seesion will be expired
   const {password: pass, ...rest} = validUser._doc;
 
   res.status(200).cookie('access_token', token, {
-    httpOnly: true}).json(validUser);
+    httpOnly: true}).json(rest);//now it will not show password in response at backend
 
-  // res.cookie('access_token', token, { httpOnly: true, secure: true, sameSite: 'strict' });
-  //   res.status(200).json(rest);
   }catch(error){
     next(error);
 }

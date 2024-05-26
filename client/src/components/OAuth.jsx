@@ -35,10 +35,19 @@ export default function OAuth() {
         }
     } 
   return (
-    <Button type='button' className='btn flex items-center justify-center 
-     hover:bg-gradient-to-r  from-pink-300 to-indigo-300 rounded-lg text-black border-2 border-grey-200/100 mt-3 pt-1 pb-1' outline onClick={handleGoogleClick}>
-        <AiFillGoogleCircle className='w-6 h-6 mr-2'/>
-        Continue with Google
-    </Button>
-  )
+    // <Button type='button' className='
+    //  hover:bg-gradient-to-r  from-pink-300 to-indigo-300 rounded-lg text-black border-2 border-grey-200/100 mt-3 pt-1 pb-1' outline onClick={handleGoogleClick}>
+    //     <AiFillGoogleCircle className='w-6 h-6 mr-2 ' />
+    //     Continue with Google
+    // </Button>
+    <Button 
+  type='button' 
+  className={'hover:bg-gradient-to-r from-pink-300 to-indigo-300 rounded-lg border-2 border-grey-200/100 mt-3 pt-1 pb-1 text-black'} 
+  outline 
+  onClick={handleGoogleClick}
+>
+  <AiFillGoogleCircle className='w-6 h-6 mr-2' />
+  Continue with Google
+</Button>
+  );
 }

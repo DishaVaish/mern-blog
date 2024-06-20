@@ -12,6 +12,7 @@ export default function SignUp() {
    const handleChange = (e) => {
       setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
     };
+    console.log(formData);
     const handleSubmit = async (e) => {
       e.preventDefault();
       if (!formData.username || !formData.email || !formData.password) {
@@ -64,7 +65,7 @@ export default function SignUp() {
           </div>
           {/* right */}
           <div className='flex-1'>
-          <form  className='flex flex-col gap-4 w-full lg:w-75 onSubmit={handleSubmit}'>
+          <form  className='flex flex-col gap-4 w-full lg:w-75' onSubmit={handleSubmit}>
             <div>
                  <Label value='Your Username' />
                  <TextInput type='text' placeholder='Username' id='username' onChange={handleChange} />

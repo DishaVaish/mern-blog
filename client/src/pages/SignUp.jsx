@@ -5,6 +5,9 @@ import{ useState } from 'react';
 import OAuth from '../components/OAuth';
 
 export default function SignUp() {
+  // const handleChange = (e) => {
+  //   console.log(e.target.value);
+  // };
   const [formData, setFormData ] = useState({}) ;
   const [errorMessage, setErrorMessage] = useState(null);
   const [loading, setLoading ] = useState(false);

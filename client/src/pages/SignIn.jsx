@@ -1,4 +1,4 @@
-// import React from 'react'
+import React from 'react'
 import { Link,useNavigate } from 'react-router-dom'
 import{Alert,Spinner, Label,TextInput,Button} from 'flowbite-react'
 import{ useState } from 'react';
@@ -16,6 +16,7 @@ export default function SignIn() {
    const handleChange = (e) => {
       setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
     };
+
     const handleSubmit = async (e) => {
       e.preventDefault();
       if (!formData.email || !formData.password) {
@@ -28,16 +29,24 @@ export default function SignIn() {
         dispatch(signInStart());
         const res = await fetch('/api/auth/signin', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', },
           body: JSON.stringify(formData),
         });
+
+        console.log("signin form",res);
+
         const data = await res.json();
+
         if (data.success === false) {
+          alert(" invalid credential");
           dispatch(signInFailure(data.message));
           // return setErrorMessage(data.message);
         }
+
         // setLoading(false);
+        
         if (res.ok) {
+          alert("login successful");
           dispatch(signInSuccess(data));
           navigate('/');
         // }
@@ -69,7 +78,7 @@ export default function SignIn() {
           </div>
           {/* right */}
           <div className='flex-1'>
-          <form  className='flex flex-col gap-4 w-full lg:w-75 onSubmit={handleSubmit}'>
+          <form  className='flex flex-col gap-4 w-full lg:w-75' onSubmit={handleSubmit}>
              <div>
                  <Label value='Your email' />
                  <TextInput type='email' placeholder='name@company.com' id='email'  onChange={handleChange} />

@@ -87,7 +87,7 @@ export default function SignIn() {
                  <Label value='Your password' />
                  <TextInput type='password' placeholder='**********' id='password'  onChange={handleChange} />
              </div>
-             <Button className='btn flex items-center justify-center py-1.25  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-indigo-600 hover:to-pink-600 rounded-lg text-white mt-4 pt-2 pb-2' type='submit' disabled={loading} >
+             <Button className='btn flex items-center justify-center py-1.25  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-indigo-600 hover:to-pink-600 rounded-lg text-white mt-4 pt-0.5 pb-0.5' type='submit' disabled={loading} >
               {
                  loading ? (
                   <>

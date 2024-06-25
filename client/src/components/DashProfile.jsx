@@ -5,10 +5,11 @@ import {getDownloadURL, getStorage, ref, uploadBytesResumable} from 'firebase/st
 import { app } from '../firebase';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import {Link} from 'react-router-dom';
 
 //Local Error: currentUser is not readable i.e also username/ profilepic etc. are not able to fetch
 export default function DashProfile(){
-    const {currentUser} = useSelector(state => state.user);
+    const {currentUser, error, loading} = useSelector(state => state.user);
     const [imageFile, setImageFile] = useState(null);
     const [imageFileUrl, setImageFileUrl] =useState(null);
     const [imageFileUploadProgress, setImageFileUploadProgress] =useState(null);
@@ -98,7 +99,15 @@ export default function DashProfile(){
                 <TextInput type='text' id='username' placeholder='username' defaultValue={currentUser.username} />
                 <TextInput type='email' id='email' placeholder='email' defaultValue={currentUser.email} />
                 <TextInput type='password' id='password' placeholder='username'  />
-                <Button type='submit' gradientDuoTone='purpleTOBlue' outline> Update </Button>
+                <Button type='submit'className='btn flex items-center justify-center py-1.25  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-indigo-600 hover:to-pink-600 rounded-lg text-white mt-4 pt-0.5 pb-0.5' outline disabled={loading || imageFileUploading}> {loading ? 'Loading...' : 'Update'} </Button>
+                
+                {/* currentUser.isAdmin && ( */}
+                        <Link to={'/create-post'}>
+                        <button class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-30 py-2.5 text-center w-full me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">Create a Post
+                     </button>
+                      </Link>
+                      {/* )}; */}
+                    
             </form>
             <div className="text-red-500 flex justify-between mt-5">
                 <span className='cursor-pointer'>Delete Account</span>

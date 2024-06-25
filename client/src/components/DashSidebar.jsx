@@ -62,7 +62,11 @@
 //     );
 // }
 import { Sidebar } from 'flowbite-react';
+<<<<<<< HEAD
 import { HiUser, HiArrowSmRight, HiDocumentText } from 'react-icons/hi';
+=======
+import { HiUser, HiArrowSmRight, HiOutlineUserGroup } from 'react-icons/hi';
+>>>>>>> 4638a41c5a2f3262e85fa6bee454bbe658e7a2e9
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -111,7 +115,22 @@ export default function DashSidebar() {
                             Posts
                         </Sidebar.Item>
                         </Link>
+<<<<<<< HEAD
                     {/* )} */}
+=======
+                    )}
+                    {currentUser.isAdmin && (
+                        <Link to='/dashboard?tab=users'>
+                        <Sidebar.Item
+                            active={tab === 'users'}
+                            icon={HiOutlineUserGroup}
+                            as='div'
+                        >
+                            Users
+                        </Sidebar.Item>
+                        </Link>
+                    )}
+>>>>>>> 4638a41c5a2f3262e85fa6bee454bbe658e7a2e9
                     <Sidebar.Item 
                         icon={HiArrowSmRight} 
                         className='cursor-pointer'

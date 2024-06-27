@@ -52,7 +52,7 @@ try{
   //Creating a unique token of signin: 
   //It is going to be encrypted just like hashed password 
   //_id is the unique id stored for each user in MongoDB
-  const token = jwt.sign({id: validUser._id}, process.env.JWT_SECRET);//.env file should be in directory
+  const token = jwt.sign({id: validUser._id, isAdmin: validUser.isAdmin}, process.env.JWT_SECRET);//.env file should be in directory
   // const token = jwt.sign({id: validUser._id}, 'vsmehta');
   // we can add expiresIn : 'Id' here so after how much time the seesion will be expired
   const {password: pass, ...rest} = validUser._doc;

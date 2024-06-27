@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import userRoutes from './routes/user.route.js';
 import authRoutes from './routes/auth.routes.js';
-
+import commentRoutes from './routes/comment.route.js';
 // mongoose.connect('mongodb://localhost:27017/Login-signup',{
   // mongoose.connect('mongodb://127.0.0.1:27017/Login-signup', {
   // // mongoose.connect('mongodb+srv://vedangmehta07:6S6sRQubtBGL293k@mern-blog.nfbdcuk.mongodb.net/mern-blog?retryWrites=true&w=majority', {
@@ -32,6 +32,7 @@ app.listen(3000, () => {
 //use the get req here inside the index part
 app.use('/api/user',userRoutes);
 app.use('/api/auth',authRoutes);
+app.use('/api/comment',commentRoutes);
 
 //middleware made
 app.use((err,req,res, next) =>{

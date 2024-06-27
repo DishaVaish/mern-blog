@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
 // import React from 'react'
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
@@ -13,10 +13,12 @@ import OnlyAdminPrivateRoute from './components/OnlyAdminPrivateRoute';
 import CreatePost from './pages/CreatePost';
 // import Post from './../../api/models/post.model';
 import PostPage from './pages/PostPage';
+import ScrollToTop from './components/ScrollToTop';
 
 export default function App() {
   return (
-    <Router>
+    <BrowserRouter>
+      <ScrollToTop/>
       <Header />
        <Routes>
          <Route path="/" element={<Home />} />
@@ -34,6 +36,6 @@ export default function App() {
          
        </Routes>
        <Footer />
-    </Router>
+    </BrowserRouter>
   )
 }

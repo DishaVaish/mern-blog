@@ -35,8 +35,10 @@ export default function Dashboard() {
        {tab ==='users' && <DashUsers/>}
        {/* comments...*/}
        {tab ==='comments' && <DashComments/>}
+         {/* Dashboard comp */}
+         {tab ==='dash' && <DashboardComp/>}
 
     </div>
   );
   
-}
+}            

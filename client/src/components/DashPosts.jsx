@@ -110,7 +110,7 @@ export default function DashPosts() {
                   </Table.Cell>
                   <Table.Cell>{post.category}</Table.Cell>
                   <Table.Cell>
-                    <span
+                  <span
                       onClick={() => {
                         setShowModal(true);
                         setPostIdToDelete(post._id);

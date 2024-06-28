@@ -159,7 +159,7 @@ export default function DashSidebar() {
                         icon={HiArrowSmRight} 
                         className='cursor-pointer'
                          onClick = {handleSignout}
-{/*                         onClick={() => handleNavigation('/sign-out')} */}
+                    // onClick={() => handleNavigation('/sign-out')} 
                     >
                         Sign Out
                     </Sidebar.Item>

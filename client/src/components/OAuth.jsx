@@ -45,9 +45,14 @@ export default function OAuth() {
   // className={'hover:bg-gradient-to-r from-pink-300 to-indigo-300 rounded-lg border-2 border-grey-200/100 mt-3 pt-1 pb-1 text-black'} 
   // outline 
   // onClick={handleGoogleClick}
-<Button type="button" class="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-0.005 text-center me-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900">
-<svg class="w-2 h-1 me-11" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">
-<path fill-rule="evenodd"  clip-rule="evenodd"/>
+// <Button type="button" class="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-0.005 text-center me-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900">
+// <svg class="w-2 h-1 me-11" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">
+// <path fill-rule="evenodd"  clip-rule="evenodd"/>
+
+      //Use of className in place of class and clipRule in place of clip-rule
+<Button type="button" className="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-0.005 text-center me-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900">
+<svg className="w-2 h-1 me-11" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">
+<path fillRule="evenodd"  clipRule="evenodd"/>
 </svg>
   <AiFillGoogleCircle className='w-5 h-6 mr-2  ' />
   Continue with Google
